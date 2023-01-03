@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	"dockerFile": "Dockerfile",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {}
+	},
+
+	"customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-node-azure-pack",
+                "HashiCorp.terraform",
+                "ms-azuretools.vscode-azureterraform"
+            ],
+            "settings": {
+                "workbench.colorTheme": "Default Dark+",
+                "editor.renderWhitespace": "all",
+                "files.trimTrailingWhitespace": true,
+                "diffEditor.ignoreTrimWhitespace": false,
+                "telemetry.telemetryLevel": "off",
+                "workbench.enableExperiments": false,
+                "workbench.settings.enableNaturalLanguageSearch": false,
+                "editor.bracketPairColorization.enabled": false
+            }
+        }
+    },
+
+    // needed to run as non root with additional volume mount for podman
+	"runArgs": [
+        "--userns=keep-id",
+        "-v=${localWorkspaceFolder}:/workspace:Z"
+    ],
+    "containerUser": "vscode",
+    "remoteUser": "vscode"
+}
