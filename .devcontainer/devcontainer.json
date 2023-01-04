@@ -27,7 +27,7 @@
         }
     },
 
-    // needed to run as non root with additional volume mount for podman
+    // needed to run as non root with additional volume mount for podman, take the runArgs out if using Docker.
 	"runArgs": [
         "--userns=keep-id",
         "-v=${localWorkspaceFolder}:/workspace:Z",

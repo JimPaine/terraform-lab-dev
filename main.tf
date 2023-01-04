@@ -1,14 +1,8 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=3.0.0"
-    }
-  }
-}
+resource "azurerm_resource_group" "group" {
+  name = "tflab"
+  location = "northeurope"
 
-provider "azurerm" {
-  features {
-
+  tags = {
+    "demo" = "hello world"
   }
 }
