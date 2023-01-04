@@ -30,7 +30,8 @@
     // needed to run as non root with additional volume mount for podman
 	"runArgs": [
         "--userns=keep-id",
-        "-v=${localWorkspaceFolder}:/workspace:Z"
+        "-v=${localWorkspaceFolder}:/workspace:Z",
+        "-v=${localEnv:HOME}/.ssh:/home/vscode/.ssh:Z"
     ],
     "containerUser": "vscode",
     "remoteUser": "vscode"
